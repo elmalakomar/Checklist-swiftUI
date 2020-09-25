@@ -8,9 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        NavigationView{
+            List {
+                Section(header: Text("High priority")){
+                    Text("Walk the dog")
+                    Text("Brush my teeth")
+                    Text("Learn iOS development")
+                }
+                Section(header: Text("Low priority")){
+                    Text("Soccer practice")
+                    Text("Eat ice cream")
+                }
+            }
+            .listStyle(GroupedListStyle())
+            .navigationTitle("Checklist")
+        }
     }
 }
 
