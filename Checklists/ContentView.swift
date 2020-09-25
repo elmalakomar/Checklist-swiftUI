@@ -8,28 +8,43 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var checklistItems = ["Walk the dog",
+                          "Brush my teeth",
+                          "Learn iOS development",
+                          "Soccer practice",
+                          "Eat ice cream"]
+    
+    func deleteListItem(whichElement: IndexSet) {
+        checklistItems.remove(atOffsets: whichElement)
+    }
+    
+    func moveListItem(whichElement: IndexSet, destination:Int) {
+        checklistItems.move(fromOffsets: whichElement, toOffset: destination)
+    }
     
     var body: some View {
         NavigationView{
             List {
-                Section(header: Text("High priority")){
-                    Text("Walk the dog")
-                    Text("Brush my teeth")
-                    Text("Learn iOS development")
+                ForEach(checklistItems, id: \.self) { item in
+                    Text(item)
+                        .onTapGesture{
+                            self.checklistItems.append(item)
+                        }
                 }
-                Section(header: Text("Low priority")){
-                    Text("Soccer practice")
-                    Text("Eat ice cream")
-                }
+                .onMove(perform: moveListItem)
+                .onDelete(perform: deleteListItem)
             }
-            .listStyle(GroupedListStyle())
+            .navigationBarItems(trailing: EditButton())
             .navigationTitle("Checklist")
         }
+        
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        Group {
+            ContentView()
+        }
     }
 }
