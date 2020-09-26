@@ -40,9 +40,17 @@ struct ContentView: View {
                         Spacer()
                         Text(checklistItem.isChecked ? "✅" : "🔲")
                     }
+                    .background(Color(UIColor.systemBackground)) // this makes the entire row clickable
+                    .onTapGesture(perform: {
+                        print("The user tapped \(checklistItem.name)")
+                        if let machingIndex = self.checklistItems.firstIndex(where: { $0.id == checklistItem.id}) {
+                            self.checklistItems[machingIndex].isChecked.toggle()
+                        }
+                    })
                 }
                 .onMove(perform: moveListItem)
                 .onDelete(perform: deleteListItem)
+                
             }
             .navigationBarItems(trailing: EditButton())
             .navigationTitle("Checklist")
