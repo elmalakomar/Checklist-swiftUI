@@ -14,7 +14,7 @@ struct ChecklistItem: Identifiable {
     var isChecked: Bool = false
 }
 
-struct ContentView: View {
+struct ChecklistView: View {
     @State var checklistItems = [
         ChecklistItem(name: "Walk the dog"),
         ChecklistItem(name: "Brush my teeth"),
@@ -61,7 +61,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ContentView()
+            ChecklistView()
         }
     }
 }

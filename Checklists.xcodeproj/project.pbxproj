@@ -7,16 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		715C9719251F31C400A15AC7 /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715C9718251F31C400A15AC7 /* ChecklistItem.swift */; };
+		715C971C251F3A4800A15AC7 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715C971B251F3A4800A15AC7 /* Checklist.swift */; };
 		71B1F63F251B594F004A82D4 /* ChecklistsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B1F63E251B594F004A82D4 /* ChecklistsApp.swift */; };
-		71B1F641251B594F004A82D4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B1F640251B594F004A82D4 /* ContentView.swift */; };
+		71B1F641251B594F004A82D4 /* ChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B1F640251B594F004A82D4 /* ChecklistView.swift */; };
 		71B1F643251B5952004A82D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71B1F642251B5952004A82D4 /* Assets.xcassets */; };
 		71B1F646251B5952004A82D4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71B1F645251B5952004A82D4 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		715C9718251F31C400A15AC7 /* ChecklistItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
+		715C971B251F3A4800A15AC7 /* Checklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
 		71B1F63B251B594F004A82D4 /* Checklists.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Checklists.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71B1F63E251B594F004A82D4 /* ChecklistsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistsApp.swift; sourceTree = "<group>"; };
-		71B1F640251B594F004A82D4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		71B1F640251B594F004A82D4 /* ChecklistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistView.swift; sourceTree = "<group>"; };
 		71B1F642251B5952004A82D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		71B1F645251B5952004A82D4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		71B1F647251B5952004A82D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -53,10 +57,12 @@
 			isa = PBXGroup;
 			children = (
 				71B1F63E251B594F004A82D4 /* ChecklistsApp.swift */,
-				71B1F640251B594F004A82D4 /* ContentView.swift */,
+				71B1F640251B594F004A82D4 /* ChecklistView.swift */,
 				71B1F642251B5952004A82D4 /* Assets.xcassets */,
 				71B1F647251B5952004A82D4 /* Info.plist */,
 				71B1F644251B5952004A82D4 /* Preview Content */,
+				715C9718251F31C400A15AC7 /* ChecklistItem.swift */,
+				715C971B251F3A4800A15AC7 /* Checklist.swift */,
 			);
 			path = Checklists;
 			sourceTree = "<group>";
@@ -138,7 +144,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71B1F641251B594F004A82D4 /* ContentView.swift in Sources */,
+				715C971C251F3A4800A15AC7 /* Checklist.swift in Sources */,
+				71B1F641251B594F004A82D4 /* ChecklistView.swift in Sources */,
+				715C9719251F31C400A15AC7 /* ChecklistItem.swift in Sources */,
 				71B1F63F251B594F004A82D4 /* ChecklistsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
