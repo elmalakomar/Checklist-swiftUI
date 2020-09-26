@@ -7,12 +7,6 @@
 
 import SwiftUI
 
-struct ChecklistItem: Identifiable {
-    let id = UUID()
-    var name: String
-    var isChecked: Bool = false
-}
-
 @main
 struct ChecklistsApp: App {
     var body: some Scene {

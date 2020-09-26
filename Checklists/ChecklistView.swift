@@ -13,11 +13,12 @@ import SwiftUI
 struct ChecklistView: View {
     
     @ObservedObject var checklist = Checklist()
+    @State var newChecklistItemViewIsVisible = false
     
     var body: some View {
         NavigationView{
             List {
-                ForEach(checklist.checklistItems) { checklistItem in
+                ForEach(checklist.items) { checklistItem in
                     HStack{
                         Text(checklistItem.name)
                         Spacer()
@@ -26,8 +27,8 @@ struct ChecklistView: View {
                     .background(Color(UIColor.systemBackground)) // this makes the entire row clickable
                     .onTapGesture(perform: {
                         print("The user tapped \(checklistItem.name)")
-                        if let machingIndex = self.checklist.checklistItems.firstIndex(where: { $0.id == checklistItem.id}) {
-                            self.checklist.checklistItems[machingIndex].isChecked.toggle()
+                        if let machingIndex = self.checklist.items.firstIndex(where: { $0.id == checklistItem.id}) {
+                            self.checklist.items[machingIndex].isChecked.toggle()
                         }
                     })
                 }
@@ -35,8 +36,21 @@ struct ChecklistView: View {
                 .onDelete(perform: checklist.deleteListItem)
                 
             }
-            .navigationBarItems(trailing: EditButton())
+            .navigationBarItems(
+                leading: Button(action: {
+                    self.newChecklistItemViewIsVisible = true
+                }) {
+                    HStack {
+                        Image(systemName: "plus.circle.fill")
+                        Text("Add item")
+                    }
+                },
+                trailing: EditButton()
+            )
             .navigationTitle("Checklist")
+        }
+        .sheet(isPresented: $newChecklistItemViewIsVisible) {
+            NewChecklistItemView(checklist: self.checklist)
         }
     }
 }
