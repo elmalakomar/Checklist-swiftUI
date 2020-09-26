@@ -7,12 +7,21 @@
 
 import SwiftUI
 
+
+struct ChecklistItem: Identifiable {
+    let id = UUID()
+    var name: String
+    var isChecked: Bool = false
+}
+
 struct ContentView: View {
-    @State var checklistItems = ["Walk the dog",
-                          "Brush my teeth",
-                          "Learn iOS development",
-                          "Soccer practice",
-                          "Eat ice cream"]
+    @State var checklistItems = [
+        ChecklistItem(name: "Walk the dog"),
+        ChecklistItem(name: "Brush my teeth"),
+        ChecklistItem(name: "Learn iOS development", isChecked: true),
+        ChecklistItem(name: "Soccer practice"),
+        ChecklistItem(name: "Eat ice cream", isChecked: true)
+        ]
     
     func deleteListItem(whichElement: IndexSet) {
         checklistItems.remove(atOffsets: whichElement)
@@ -25,11 +34,12 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             List {
-                ForEach(checklistItems, id: \.self) { item in
-                    Text(item)
-                        .onTapGesture{
-                            self.checklistItems.append(item)
-                        }
+                ForEach(checklistItems) { checklistItem in
+                    HStack{
+                        Text(checklistItem.name)
+                        Spacer()
+                        Text(checklistItem.isChecked ? "✅" : "🔲")
+                    }
                 }
                 .onMove(perform: moveListItem)
                 .onDelete(perform: deleteListItem)
@@ -37,7 +47,6 @@ struct ContentView: View {
             .navigationBarItems(trailing: EditButton())
             .navigationTitle("Checklist")
         }
-        
     }
 }
 
